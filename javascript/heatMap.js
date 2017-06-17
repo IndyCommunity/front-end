@@ -3,8 +3,7 @@ const tableData = {
   long:-86.1581
 }
 const busiData = {
-  type: 1,
-  pic: 'http://www.googlemapsmarkers.com/v1/275DCA/',
+  type: 6.0,
   lat:39.7684,
   long:-86.1581
 }
@@ -30,22 +29,27 @@ var heatmap = new google.maps.visualization.HeatmapLayer({
   data: heatmapData
 });
 heatmap.setMap(map);
-/*
-if(factory){var image ='http://www.googlemapsmarkers.com/v1/275DCA/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/CA2776/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/FBF41C/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/FB9C1C/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/1CFBD2/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/1CFB66/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/1C63FB/'}
-else if(){var image = 'http://www.googlemapsmarkers.com/v1/811CFB/'}
-*/
+var image;
+
+
 for(let i=0;i<3000;i++){
   var marker = new google.maps.Marker({
     position: {lat: busiData.lat, lng: busiData.long},
     map: map,
-    icon: busiData.pic,
+    icon: image,
     title: 'Point '+i
   });
+  if(busiData.type<6){busiData.type+=1}
+  else {busiData.type=1}
+if(busiData.type==1){ image ='http://www.googlemapsmarkers.com/v1/275DCA/'}
+else if(busiData.type==2){ image = 'http://www.googlemapsmarkers.com/v1/CA2776/'}
+else if(busiData.type==3){ image = 'http://www.googlemapsmarkers.com/v1/FBF41C/'}
+else if(busiData.type==4){ image = 'http://www.googlemapsmarkers.com/v1/FB9C1C/'}
+else if(busiData.type==5){ image = 'http://www.googlemapsmarkers.com/v1/1CFBD2/'}
+else if(busiData.type==6){ image = 'http://www.googlemapsmarkers.com/v1/1CFB66/'}
+else if(busiData.type==7){ image = 'http://www.googlemapsmarkers.com/v1/1C63FB/'}
+else if(busiData.type==8){ image = 'http://www.googlemapsmarkers.com/v1/811CFB/'}
+  busiData.long+=0.01
+  busiData.lat+=0.01
 }
 
