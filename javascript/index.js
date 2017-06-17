@@ -10,6 +10,7 @@ const app = {
       titleContainer.classList.add('active');
       // titleContainer.classList.add('animated', 'zoomOut');
     }, 100);
+
   },
 }
 
