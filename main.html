@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
   </head>
   <body>
     <div class="nav"><h1>Update Indy</h1></div>
@@ -35,58 +36,15 @@
       </div>
     </div>
 
-    <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn2laYvDgxVJAc_ARCkY55s0EXiqs689M&libraries=visualization"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+    <script type="text/javasript" src="javascript/secrets.js"></script>
+    <scrip id="google-map" type="text/javascript" "https://maps.googleapis.com/maps/api/js?key=&libraries=visualization"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script src="./javascript/heatMap.js"></script>
-
-    <script>
-      var ctx = document.getElementById("myChart").getContext('2d');
-      var myChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-              labels: ["2011", "2012", "2013", "2014", "2015", "2016", "2017","2018*","2019*","2020*","2021*"],
-              datasets: [{
-                  label: '# of Crimes Committed in Indy each Year',
-                  data: [24,29,26,22,17,18,15,16,14,11,9],
-                  backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)',
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                  ],
-                  borderColor: [
-                      'rgba(255,99,132,1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)',
-                      'rgba(255,99,132,1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                  ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }]
-              }
-          }
-      });
-    </script>
+    <script src="./javascript/chart.js"></script>
   </body>
 </html>
