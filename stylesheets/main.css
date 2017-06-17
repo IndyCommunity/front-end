@@ -7,12 +7,20 @@ body {
   font-family: 'Mate SC', serif;
 }
 
+h1 {
+  font-size: 6em;
+}
+
+#menu1 {
+  background-color: rgba(66, 133, 244, 0.7);
+  font-size: 1.5em;
+}
+
 .nav {
   width: 100vw; 
-  height: 13vh; 
+  height: 15vh; 
   background-color: #4285f4;
   text-align: center;
-  font-size: xx-large;
   color: white;
   margin-top: -3rem;
 }
