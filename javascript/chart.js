@@ -2,7 +2,7 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["2011", "2012", "2013", "2014", "2015", "2016", "2017","2018*","2019*","2020*","2021*"],
+        labels: ["2013", "2014", "2015", "2016", "2017","2018*","2019*","2020*","2021*"],
         datasets: [{
             label: 'Avg # of Violent Crimes Committed per Day in Indy',
             data: [24,29,26,22,17,18,15,16,14,11,9],
