@@ -55,7 +55,14 @@ function makeMarker(a1){
     }
   }
 
-  function liCLick(){
+  function updateDropDown(text) {
+    const dropDown = document.querySelector('#menu1');
+    dropDown.textContent = text;
+  }
+
+  function liCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrLI = []
       $.ajax({
         type: "POST",
@@ -73,7 +80,9 @@ function makeMarker(a1){
     updateMarkers(arrLI)
   }
 
-  function hiCLick(){
+  function hiCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrHI = []
     $.ajax({
       type: "POST",
@@ -91,7 +100,9 @@ function makeMarker(a1){
     updateMarkers(arrHI)
   }
 
-  function ccCLick(){
+  function ccCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrCC = []
     $.ajax({
       type: "POST",
@@ -109,7 +120,9 @@ function makeMarker(a1){
     updateMarkers(arrCC)
   }
 
-  function hcCLick(){
+  function hcCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrHC = []
     $.ajax({
       type: "POST",
@@ -127,7 +140,9 @@ function makeMarker(a1){
     updateMarkers(arrHC)
   }
 
-  function powCLick(){
+  function powCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrPoW = []
     $.ajax({
       type: "POST",
@@ -145,7 +160,9 @@ function makeMarker(a1){
     updateMarkers(arrPoW)
   }
 
-  function oCLick(){
+  function oCLick(e){
+    updateDropDown(e.target.textContent);
+
     let arrOffices = []
       $.ajax({
         type: "POST",
