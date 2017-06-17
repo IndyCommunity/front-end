@@ -193,7 +193,7 @@ function maximize(){
   //shapes[0].setMap(null);
   //shapes = []
   $.ajax({
-        type: "GET",
+        type: "POST",
         dataType: "json",
         async: false,
         data: {
