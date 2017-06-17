@@ -171,6 +171,18 @@ function makeMarker(a1){
     arr1 = []
   }
 
+function maximize(){
+  arrCoor = []
+  $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: false,
+        url: 'http://www.indy.science/api/',
+        success: function (data) {
+          map.data.loadGeoJson('data');
+        }
+      })
+}
 
 const liButton = document.querySelector('#liClick')
 liButton.addEventListener('click',liCLick)
@@ -184,3 +196,6 @@ const powButton = document.querySelector('#powClick')
 powButton.addEventListener('click',powCLick)
 const oButton = document.querySelector('#oClick')
 oButton.addEventListener('click',oCLick)
+
+const max = document.querySelector('#max')
+max.addEventListener('click',maximize)
