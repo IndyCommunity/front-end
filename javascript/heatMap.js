@@ -173,8 +173,8 @@ function makeMarker(a1){
   }
 
 function maximize(){
-  shapes[0].setMap(null);
-  shapes = []
+  //shapes[0].setMap(null);
+  //shapes = []
   $.ajax({
         type: "GET",
         dataType: "json",
@@ -182,7 +182,7 @@ function maximize(){
         url: 'http://www.indy.science/api/',
         success: function (data) {
           const s = map.data.loadGeoJson('data');
-          shapes.push(s)
+          //shapes.push(s)
         }
       })
 }
