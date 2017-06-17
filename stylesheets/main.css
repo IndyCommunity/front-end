@@ -73,3 +73,8 @@ body {
   width: 45vw;
   background-color: gray; 
 }
+
+#graph-disclaimer{
+  font-size: small;
+  color: #777777;
+}
