@@ -8,6 +8,7 @@ const app = {
     const titleContainer = document.querySelector(selectors.title);
     setTimeout(() => {
       titleContainer.classList.add('active');
+      // titleContainer.classList.add('animated', 'zoomOut');
     }, 100);
   },
 }

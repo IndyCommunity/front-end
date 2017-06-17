@@ -8,6 +8,7 @@ body {
 
 h1 {
   font-size: 6em;
+  margin-top: 3rem;
 }
 
 .legend {
@@ -28,11 +29,12 @@ h1 {
 
 .nav {
   width: 100vw; 
-  height: 15vh; 
+  height: 150px; 
   background-color: #4285f4;
   text-align: center;
   color: white;
   margin-top: -3rem;
+
 }
 
 .left-center {
@@ -48,6 +50,7 @@ h1 {
 }
 
 .vertical-separator {
+  z-index: -1;
   background-color: #4285f4; 
   width: 5px; 
   height: 75vh;
@@ -60,12 +63,17 @@ h1 {
 }
 
 .horizontal-separator {
+  z-index: -1;
   margin-top: 2rem;
   margin-bottom: 2  rem;
   background-color: #4285f4; 
   height: 5px;
   width: 45vw;
   border-radius: 10px;
+}
+
+.fade {
+  -webkit-animation-duration: 2s;
 }
 
 #map-buttons {
