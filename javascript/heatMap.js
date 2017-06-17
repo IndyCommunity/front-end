@@ -201,6 +201,7 @@ function maximize(){
         },
         url: 'http://www.indy.science/api/geoJson',
         success: function (data) {
+          console.log(data);
           const s = map.data.loadGeoJson(data);
           //shapes.push(s)
         }
