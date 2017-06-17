@@ -10,7 +10,7 @@ const busiData = {
 
 var heatmapData = [];
 
-for(let i=0;i<3000;i++){
+for(let i=0;i<300;i++){
   tableData.long+=0.0001
   tableData.lat+=0.0001
   heatmapData.push(new google.maps.LatLng(tableData.lat, tableData.long))
@@ -32,7 +32,7 @@ heatmap.setMap(map);
 var image='http://www.googlemapsmarkers.com/v1/275DCA/';
 
 
-for(let i=0;i<3000;i++){
+for(let i=0;i<4;i++){
   var marker = new google.maps.Marker({
     position: {lat: busiData.lat, lng: busiData.long},
     map: map,
