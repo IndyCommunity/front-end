@@ -1,5 +1,6 @@
 let arr = []
 let markers = []
+let shapes = []
 $.ajax({
   type: "GET",
   dataType: "json",
@@ -172,14 +173,16 @@ function makeMarker(a1){
   }
 
 function maximize(){
-  arrCoor = []
+  shapes[0].setMap(null);
+  shapes = []
   $.ajax({
         type: "GET",
         dataType: "json",
         async: false,
         url: 'http://www.indy.science/api/',
         success: function (data) {
-          map.data.loadGeoJson('data');
+          const s = map.data.loadGeoJson('data');
+          shapes.push(s)
         }
       })
 }
