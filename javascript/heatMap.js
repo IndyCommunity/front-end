@@ -29,7 +29,9 @@ map = new google.maps.Map(document.getElementById('map-container'), {
 });
 
 var heatmap = new google.maps.visualization.HeatmapLayer({
-  data: heatmapData
+  data: heatmapData,
+  opacity: 0.6,
+  maxIntensity: 10,
 });
 heatmap.setMap(map);
 
