@@ -2,10 +2,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["2013", "2014", "2015", "2016", "2017","2018*","2019*","2020*","2021*"],
+        labels: ["2013", "2014", "2015", "2016", "2017*","2018*","2019*","2020*","2021*"],
         datasets: [{
-            label: 'Avg # of Violent Crimes Committed per Day in Indy',
-            data: [24,29,26,22,17,18,15,16,14,11,9],
+            label: '# of Crimes Committed per Year in Indy',
+            data: [55757,52713,53917,53017,52533,50874,51536,50299,49673],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -16,8 +16,6 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -29,8 +27,6 @@ var myChart = new Chart(ctx, {
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
             ],
             borderWidth: 1
         }]
@@ -39,7 +35,7 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
         }
