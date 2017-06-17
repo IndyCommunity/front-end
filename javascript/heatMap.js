@@ -1,5 +1,6 @@
 let arr = []
 let markers = []
+let shapes = []
 $.ajax({
   type: "GET",
   dataType: "json",
@@ -171,6 +172,20 @@ function makeMarker(a1){
     arr1 = []
   }
 
+function maximize(){
+  shapes[0].setMap(null);
+  shapes = []
+  $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: false,
+        url: 'http://www.indy.science/api/',
+        success: function (data) {
+          const s = map.data.loadGeoJson('data');
+          shapes.push(s)
+        }
+      })
+}
 
 const liButton = document.querySelector('#liClick')
 liButton.addEventListener('click',liCLick)
@@ -184,3 +199,6 @@ const powButton = document.querySelector('#powClick')
 powButton.addEventListener('click',powCLick)
 const oButton = document.querySelector('#oClick')
 oButton.addEventListener('click',oCLick)
+
+const max = document.querySelector('#max')
+max.addEventListener('click',maximize)
