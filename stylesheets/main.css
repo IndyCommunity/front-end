@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Mate+SC');
+
 body {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
+  font-family: 'Mate SC', serif;
 }
 
 .nav {
   width: 100vw; 
-  height: 15vh; 
-  background-color: #4285f4
+  height: 13vh; 
+  background-color: #4285f4;
+  text-align: center;
+  font-size: xx-large;
+  color: white;
+  margin-top: -3rem;
 }
 
 .left-center {
@@ -44,7 +51,7 @@ body {
 }
 
 #map-buttons {
-  background-color: gray;
+  background-color: whitesmoke;
   width: 45vw;
   height: 35vh;
 }
