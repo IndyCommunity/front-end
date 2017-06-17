@@ -1,4 +1,5 @@
 let arr = []
+let markers = []
 $.ajax({
   type: "GET",
   dataType: "json",
@@ -11,94 +12,6 @@ $.ajax({
 
 
 var image='http://www.googlemapsmarkers.com/v1/275DCA/';
-/*
-let arrOffices = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Office"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrOffices=data
-    image ='http://www.googlemapsmarkers.com/v1/275DCA/'
-  }
-})
-let arrLI = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Light Industrial"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrLI=data
-    image = 'http://www.googlemapsmarkers.com/v1/CA2776/'
-  }
-})
-
-let arrHI = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Heavy Industrial"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrHI=data
-    image = 'http://www.googlemapsmarkers.com/v1/FBF41C/'
-  }
-})
-let arrCC = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Community Commercial"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrCC=data
-    image = 'http://www.googlemapsmarkers.com/v1/FB9C1C/'
-  }
-})
-let arrHC = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Heavy Commercial"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrHC=data
-    image = 'http://www.googlemapsmarkers.com/v1/1CFBD2/'
-  }
-})
-
-let arrPoW = []
-$.ajax({
-  type: "POST",
-  dataType: "json",
-  async: false,
-  data: {
-        "zone": "Place of Worship"
-    },
-  url: 'http://www.indy.science/api/coordsByZone',
-  success: function (data) {
-    arrPoW=data
-    image = 'http://www.googlemapsmarkers.com/v1/1CFB66/'
-  }
-})
-*/
 
 var heatmapData = [];
 
@@ -121,23 +34,151 @@ var heatmap = new google.maps.visualization.HeatmapLayer({
 heatmap.setMap(map);
 
 
-for(let i=0;i<arrCC.length;i++){
+function makeMarker(a1){
   var marker = new google.maps.Marker({
-    position: {lat: parseFloat(arrCC[i].lat), lng: parseFloat(arrCC[i].long)},
+    position: {lat: parseFloat(a1.lat), lng: parseFloat(a1.long)},
     map: map,
     icon: image,
-    title: 'Point '+i
+    title: 'Point'
   });
-  /*
-  if(busiData.type<6){busiData.type+=1}
-  else {busiData.type=1}
-  
-  if(busiData.type==1){ image ='http://www.googlemapsmarkers.com/v1/275DCA/'}
-  else if(busiData.type==2){ image = 'http://www.googlemapsmarkers.com/v1/CA2776/'}
-  else if(busiData.type==3){ image = 'http://www.googlemapsmarkers.com/v1/FBF41C/'}
-  else if(busiData.type==4){ image = 'http://www.googlemapsmarkers.com/v1/FB9C1C/'}
-  else if(busiData.type==5){ image = 'http://www.googlemapsmarkers.com/v1/1CFBD2/'}
-  else if(busiData.type==6){ image = 'http://www.googlemapsmarkers.com/v1/1CFB66/'}
-  */
+  return marker
 }
 
+  function updateMarkers(arr1){
+    deleteMarkers(markers)
+    for(let i=0;i<arr1.length;i++){
+      const m = makeMarker(arr1[i])
+      markers.push(m)
+    }
+  }
+
+  function liCLick(){
+    let arrLI = []
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: false,
+        data: {
+              "zone": "Light Industrial"
+          },
+        url: 'http://www.indy.science/api/coordsByZone',
+        success: function (data) {
+          arrLI=data
+          image = 'http://www.googlemapsmarkers.com/v1/CA2776/'
+        }
+      })
+    updateMarkers(arrLI)
+  }
+
+  function hiCLick(){
+    let arrHI = []
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      async: false,
+      data: {
+            "zone": "Heavy Industrial"
+        },
+      url: 'http://www.indy.science/api/coordsByZone',
+      success: function (data) {
+        arrHI=data
+        image = 'http://www.googlemapsmarkers.com/v1/FBF41C/'
+      }
+    })
+    updateMarkers(arrHI)
+  }
+
+  function ccCLick(){
+    let arrCC = []
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      async: false,
+      data: {
+            "zone": "Community Commercial"
+        },
+      url: 'http://www.indy.science/api/coordsByZone',
+      success: function (data) {
+        arrCC=data
+        image = 'http://www.googlemapsmarkers.com/v1/FB9C1C/'
+      }
+    })
+    updateMarkers(arrCC)
+  }
+
+  function hcCLick(){
+    let arrHC = []
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      async: false,
+      data: {
+            "zone": "Heavy Commercial"
+        },
+      url: 'http://www.indy.science/api/coordsByZone',
+      success: function (data) {
+        arrHC=data
+        image = 'http://www.googlemapsmarkers.com/v1/1CFBD2/'
+      }
+    })
+    updateMarkers(arrHC)
+  }
+
+  function powCLick(){
+    let arrPoW = []
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      async: false,
+      data: {
+            "zone": "Place of Worship"
+        },
+      url: 'http://www.indy.science/api/coordsByZone',
+      success: function (data) {
+        arrPoW=data
+        image = 'http://www.googlemapsmarkers.com/v1/1CFB66/'
+      }
+    })
+    updateMarkers(arrPoW)
+  }
+
+  function oCLick(){
+    let arrOffices = []
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: false,
+        data: {
+              "zone": "Office"
+          },
+        url: 'http://www.indy.science/api/coordsByZone',
+        success: function (data) {
+          arrOffices=data
+          image ='http://www.googlemapsmarkers.com/v1/275DCA/'
+        }
+      })
+    updateMarkers(arrOffices)
+  }
+  function setMapOnAll(map,arr1) {
+    
+  }
+  function deleteMarkers(arr1) {
+    for (var i = 0; i < arr1.length; i++) {
+      arr1[i].setMap(null);
+    }
+    arr1 = []
+  }
+
+
+const liButton = document.querySelector('#liClick')
+liButton.addEventListener('click',liCLick)
+const hiButton = document.querySelector('#hiClick')
+hiButton.addEventListener('click',hiCLick)
+const ccButton = document.querySelector('#ccClick')
+ccButton.addEventListener('click',ccCLick)
+const hcButton = document.querySelector('#hcClick')
+hcButton.addEventListener('click',hcCLick)
+const powButton = document.querySelector('#powClick')
+powButton.addEventListener('click',powCLick)
+const oButton = document.querySelector('#oClick')
+oButton.addEventListener('click',oCLick)
