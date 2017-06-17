@@ -196,6 +196,9 @@ function maximize(){
         type: "GET",
         dataType: "json",
         async: false,
+        data: {
+            "zone": "Office"
+        },
         url: 'http://www.indy.science/api/geoJson',
         success: function (data) {
           const s = map.data.loadGeoJson('data');
